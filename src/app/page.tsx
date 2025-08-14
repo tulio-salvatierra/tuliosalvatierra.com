@@ -293,10 +293,11 @@ export default function LandingPage() {
                       height={300}
                       className="w-[120%] h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out animate-parallax"
                       style={{
-                        animationDelay: `${index * 0.2}s`,
+                        animationDelay: `${index * 0.75}s`,
                         animationDuration: '20s',
                         animationIterationCount: 'infinite',
-                        animationDirection: 'alternate'
+                        animationDirection: 'alternate',
+                        
                       }}
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">

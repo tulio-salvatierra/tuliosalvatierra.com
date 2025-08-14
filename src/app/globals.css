@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -135,19 +133,19 @@
     transform: translateX(0px) scale(1.1);
   }
   25% {
-    transform: translateX(-20px) scale(1.15);
+    transform: translateY(-120px) scale(1.15);
   }
   50% {
-    transform: translateX(-40px) scale(1.1);
+    transform: translateY(-140px) scale(1.1);
   }
   75% {
-    transform: translateX(-20px) scale(1.15);
+    transform: translateY(-220px) scale(1.15);
   }
   100% {
-    transform: translateX(0px) scale(1.1);
+    transform: translateY(200px) scale(1.1);
   }
 }
 
 .animate-parallax {
-  animation: parallax 20s ease-in-out infinite alternate;
+  animation: parallax 10s ease-in-out infinite alternate;
 }
