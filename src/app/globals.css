@@ -129,3 +129,25 @@
     overflow: hidden;
   }
 }
+
+@keyframes parallax {
+  0% {
+    transform: translateX(0px) scale(1.1);
+  }
+  25% {
+    transform: translateX(-20px) scale(1.15);
+  }
+  50% {
+    transform: translateX(-40px) scale(1.1);
+  }
+  75% {
+    transform: translateX(-20px) scale(1.15);
+  }
+  100% {
+    transform: translateX(0px) scale(1.1);
+  }
+}
+
+.animate-parallax {
+  animation: parallax 20s ease-in-out infinite alternate;
+}
