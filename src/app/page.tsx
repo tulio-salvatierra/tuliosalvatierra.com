@@ -61,7 +61,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <div className="min-h-screen relative">
+      <main className="min-h-screen relative">
         {/* Video Background - Fixed for entire application */}
 
         <ScrollyVideo
@@ -77,10 +77,11 @@ export default function LandingPage() {
           <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
             <div className="container mx-auto px-6 h-16 flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                
-                <span className="text-lg font-medium text-white">tuliosalvatierra.com</span>
+                <Link href="/" aria-label="Tulio Salvatierra Home">
+                  <span className="text-lg font-medium text-white">tuliosalvatierra.com</span>
+                </Link>
               </div>
-              <nav className="hidden md:flex items-center space-x-8">
+              <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
                 <Link href="#about" className="text-sm text-gray-400 hover:text-green-500 transition-colors">
                   About
                 </Link>
@@ -170,7 +171,7 @@ export default function LandingPage() {
           </section>
 
           {/* About Section */}
-          <section id="about" className="relative py-24 bg-black/10 backdrop-blur-sm z-20">
+          <section id="about" aria-label="About section" className="relative py-24 bg-black/10 backdrop-blur-sm z-20">
             <div className="container mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
@@ -216,7 +217,7 @@ export default function LandingPage() {
           </section>
 
           {/* Skills Section */}
-          <section id="skills" className="relative py-24 bg-gray-900/70 backdrop-blur-sm z-20">
+          <section id="skills" aria-label="Technology stack section" className="relative py-24 bg-gray-900/70 backdrop-blur-sm z-20">
             <div className="container mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
@@ -271,7 +272,7 @@ export default function LandingPage() {
           </section>
 
           {/* Projects Section */}
-          <section id="projects" className="relative py-24 bg-black/70 backdrop-blur-sm z-20">
+          <section id="projects" aria-label="Projects section" className="relative py-24 bg-black/70 backdrop-blur-sm z-20">
             <div className="container mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
@@ -294,10 +295,12 @@ export default function LandingPage() {
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
                         <Image
                           src={project.image || "/placeholder.svg"}
-                          alt={project.alt || project.title}
+                          alt={`${project.title} - ${project.description.split('|')[0] || 'Web development project'}`}
                           width={400}
                           height={300}
                           className="w-[120%] h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out animate-parallax"
+                          loading={index < 3 ? "eager" : "lazy"}
+                          fetchPriority={index < 3 ? "high" : "auto"}
                           style={{
                             animationDelay: `${index * 0.75}s`,
                             animationDuration: '20s',
@@ -343,7 +346,7 @@ export default function LandingPage() {
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="relative py-24 bg-gray-900/70 backdrop-blur-sm z-20">
+          <section id="contact" aria-label="Contact section" className="relative py-24 bg-gray-900/70 backdrop-blur-sm z-20">
             <div className="container mx-auto px-6">
               <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-4">Let&apos;s Work Together</h2>
@@ -448,7 +451,7 @@ export default function LandingPage() {
               </a>
             </Button>
           </div>
-        </div>
+        </main>
     </>
   )
 }
