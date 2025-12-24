@@ -7,7 +7,8 @@ declare module 'scrolly-video/dist/ScrollyVideo.esm.jsx' {
     className?: string;
     style?: React.CSSProperties;
     children?: ReactNode;
-    [key: string]: any;
+    scrollyVideoContainer?: ReactNode;
+    [key: string]: unknown;
   }
   
   const ScrollyVideo: ComponentType<ScrollyVideoProps>;
