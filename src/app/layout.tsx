@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/smooth-scroll";
@@ -86,17 +86,18 @@ export const metadata: Metadata = {
   },
   category: "Technology",
   classification: "Portfolio",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   verification: {
     // Add your verification codes here when available
     // google: "your-google-verification-code",
     // yandex: "your-yandex-verification-code",
     // yahoo: "your-yahoo-verification-code",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
