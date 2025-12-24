@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'scrolly-video/dist/ScrollyVideo.esm.jsx' {
   import { ComponentType, ReactNode } from 'react';
   
@@ -8,6 +9,7 @@ declare module 'scrolly-video/dist/ScrollyVideo.esm.jsx' {
     style?: React.CSSProperties;
     children?: ReactNode;
     scrollyVideoContainer?: ReactNode;
+    // Index signature for additional props that may be passed to the component
     [key: string]: unknown;
   }
   
