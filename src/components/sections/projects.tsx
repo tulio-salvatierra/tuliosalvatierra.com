@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { projectsData } from "@/projects_data/projectsData"
+import ScrollVideo from "@/components/scroll-video"
 
 export default function Projects() {
   // Transform projectsData to match the expected format
@@ -49,19 +50,9 @@ export default function Projects() {
                 <div className="relative overflow-hidden h-56">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
                   {isVideoFile(project.image) ? (
-                    <video
-                      src={typeof project.image === 'string' ? project.image : undefined}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-[120%] h-full object-cover animate-parallax"
-                      style={{
-                        animationDelay: `${index * 0.75}s`,
-                        animationDuration: '20s',
-                        animationIterationCount: 'infinite',
-                        animationDirection: 'alternate',
-                      }}
+                    <ScrollVideo
+                      src={typeof project.image === 'string' ? project.image : ''}
+                      className="w-[120%] h-full object-cover"
                     />
                   ) : (
                     <Image
