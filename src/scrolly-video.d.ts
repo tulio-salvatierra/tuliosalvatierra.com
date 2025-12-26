@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'scrolly-video/dist/ScrollyVideo.esm.jsx' {
   import { ComponentType, ReactNode } from 'react';
   
