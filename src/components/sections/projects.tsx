@@ -15,6 +15,17 @@ export default function Projects() {
     alt: project.alt
   }))
 
+  // Helper function to check if file is a video
+  const isVideoFile = (src: string | { src?: string } | undefined) => {
+    if (!src) return false
+    // Handle StaticImageData objects (imported images)
+    if (typeof src !== 'string') {
+      return false // Imported images are never videos
+    }
+    const videoExtensions = ['.mp4', '.webm', '.mov', '.ogg', '.avi']
+    return videoExtensions.some(ext => src.toLowerCase().endsWith(ext))
+  }
+
   return (
     <section id="projects" aria-label="Projects section" className="relative py-24 bg-black/70 backdrop-blur-sm z-20">
       <div className="container mx-auto px-6">
@@ -37,21 +48,33 @@ export default function Projects() {
               >
                 <div className="relative overflow-hidden h-56">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={`${project.title} - ${project.description.split('|')[0] || 'Web development project'}`}
-                    width={400}
-                    height={300}
-                    className="w-[120%] h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out animate-parallax"
-                    loading={index < 3 ? "eager" : "lazy"}
-                    fetchPriority={index < 3 ? "high" : "auto"}
-                    style={{
-                      animationDelay: `${index * 0.75}s`,
-                      animationDuration: '20s',
-                      animationIterationCount: 'infinite',
-                      animationDirection: 'alternate',
-                    }}
-                  />
+                  {isVideoFile(project.image) ? (
+                    <video
+                      src={typeof project.image === 'string' ? project.image : undefined}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-[120%] h-full object-cover animate-parallax"
+                      style={{
+                        animationDelay: `${index * 0.75}s`,
+                        animationDuration: '20s',
+                        animationIterationCount: 'infinite',
+                        animationDirection: 'alternate',
+                      }}
+                    />
+                  ) : (
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={`${project.title} - ${project.description.split('|')[0] || 'Web development project'}`}
+                      width={400}
+                      height={300}
+                      className="w-[120%] h-full object-cover animate-parallax"
+                      loading={index < 3 ? "eager" : "lazy"}
+                      fetchPriority={index < 3 ? "high" : "auto"}
+        
+                    />
+                  )}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <ArrowRight className="h-5 w-5 text-white" />

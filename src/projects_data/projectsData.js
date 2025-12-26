@@ -56,4 +56,14 @@ export const projectsData = [
     description:
       "Vite | Tailwind CSS | Typescript | Vercel Serverless API | MongoDB | A website SEO optimized to display services by a small business, Email capture form for marketing purposes and contact form for lead generation",
   },
+  {
+    id: 6,
+    title: "Ecclection",
+    image: "/ecclection.mp4",
+    alt: "Ecclection",
+    url: "https://ecclection.com/",
+    repo: "https://github.com/tulio-salvatierra/ecclection-s8",
+    description:
+      "Next.js | Tailwind CSS | Typescript | Vercel Serverless API | MongoDB | A website SEO optimized to display services by a small business, Email capture form for marketing purposes and contact form for lead generation",
+  }
 ];
